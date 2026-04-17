@@ -2,6 +2,10 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 const generateToken = (id) => {
+    if (!process.env.JWT_SECRET) {
+        console.error("FATAL ERROR: JWT_SECRET is not defined.");
+        throw new Error("Internal Server Error: Missing Security Keys");
+    }
     return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
