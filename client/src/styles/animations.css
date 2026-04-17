@@ -1,0 +1,122 @@
+/* Custom animations for CityServe */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+@keyframes success-pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  70% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Utility classes */
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.animate-success-pop {
+  animation: success-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-in;
+}
+
+/* Glassmorphism effect */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-morphism-dark {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Skeleton loading shimmer */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 0px,
+    #f8f8f8 40px,
+    #f0f0f0 80px
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}

@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: city-serve-platform
+    env: node
+    plan: free
+    buildCommand: npm run deploy:build
+    startCommand: npm run deploy:start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false # Needs to be set in Render dashboard
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        fromService:
+          name: city-serve-platform
+          type: web
+          property: host
+    healthCheckPath: /api/services # Or any public API route

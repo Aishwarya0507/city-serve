@@ -1,0 +1,14 @@
+{
+  "name": "cityserve-fullstack",
+  "version": "1.0.0",
+  "description": "CityServe Full Stack Application",
+  "main": "index.js",
+  "scripts": {
+    "deploy:build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server",
+    "deploy:start": "npm start --prefix server",
+    "dev": "npm run dev --prefix server & npm run dev --prefix client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
