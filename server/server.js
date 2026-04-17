@@ -11,7 +11,15 @@ const Message = require("./models/Message");
 const Booking = require("./models/Booking");
 const { createNotification } = require("./controllers/notificationController");
 
-dotenv.config({ path: path.join(__dirname, ".env") });
+if (process.env.NODE_ENV !== "production") {
+    dotenv.config({ path: path.join(__dirname, ".env") });
+}
+
+console.log("--- System Diagnostics ---");
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+console.log(`MONGO_URI: ${process.env.MONGO_URI ? "DETECTED" : "MISSING"}`);
+console.log(`JWT_SECRET: ${process.env.JWT_SECRET ? "DETECTED" : "MISSING"}`);
+console.log("--------------------------");
 
 const initializeServer = async () => {
     await connectDB();
